@@ -1,79 +1,54 @@
 # AI-Engineering
 
-A hands-on collection of beginner-to-intermediate **machine learning** notebooks built with Python, pandas, seaborn and scikit-learn. Each notebook explores a different dataset and a different core ML concept: from regression to classification and exploratory data analysis (EDA).
+A hands-on learning repository covering **Machine Learning** and **Deep Learning**, from linear regression to CNNs, transfer learning and Hugging Face Transformers. Each notebook focuses on one core concept, built step by step with Python.
 
-## 📂 Repository Contents
+## 📁 Repository Structure
 
-| Notebook | Topic | Dataset |
+| Folder | What's inside |
+|---|---|
+| [`ML/`](./ML) | Linear & logistic regression, decision trees, cross-validation, feature engineering, hyperparameter search |
+| [`DL/`](./DL) | Perceptron, ANN / MLP, CNN, transfer learning, BERT fine-tuning, Hugging Face pipelines |
+
+## ⭐ Highlights
+
+| Notebook | What it does | Result |
 |---|---|---|
-| `01_Linear_regression.ipynb` | Simple & multiple linear regression (predicting `sepal_length`), train/test split, MSE | `iris.csv` |
-| `02_LinearRegression.ipynb` | Data cleaning, trend visualization and linear regression on time-series style data (confirmed cases in Maharashtra & Gujarat) | `covid_19_india.csv` |
-| `03_LogisticRegression.ipynb` | Univariate/bivariate analysis, IQR outlier handling, encoding and Logistic Regression for credit default prediction | `Default.csv` |
-| `04_DecisionTreeClassifier.ipynb` | Exploring Pokémon stats by type and classifying whether a Pokémon is Legendary | `Pokemon.csv` |
-| `05_Heart_Disease_EDA.ipynb` | Full EDA: data quality, distributions, outliers, feature-vs-target analysis, correlations | `heart__1_.csv` |
+| `DL/Transfer_Learning_VGG16_FMNIST.ipynb` | Pretrained VGG16 (frozen conv layers + custom classifier) on Fashion-MNIST | 90.25% test accuracy |
+| `DL/Fine_Tuning_BERT_IMDB.ipynb` | Fine-tunes `bert-base-cased` for IMDB sentiment classification with Hugging Face `Trainer` | Trained on 25k reviews |
+| `DL/HuggingFace_Pipelines_Demo.ipynb` | Encoder, decoder and encoder-decoder models (BERT, DistilBERT, GPT-2, T5, BART) | Inference demos |
+| `ML/03_LogisticRegression.ipynb` | EDA, IQR outlier handling, encoding and logistic regression for credit default prediction | — |
 
-## 📊 Datasets
+## 🧠 Topics Covered
 
-| File | Rows | Description |
-|---|---|---|
-| `iris.csv` | 150 | Classic Iris flower measurements (sepal/petal length & width, species) |
-| `covid_19_india.csv` | ~1,250 | State-wise daily COVID-19 cases (confirmed, cured, deaths) in India |
-| `Default.csv` | 10,000 | Credit card customers: balance, income, student status, default (Yes/No) |
-| `Pokemon.csv` | 800 | Pokémon stats (HP, Attack, Defense, Speed, etc.), types and Legendary flag |
-| `heart__1_.csv` | 303 | Patient health records with 13 clinical features and a heart disease target (`output`) |
+**Machine Learning:** Linear Regression, Logistic Regression, Decision Trees, Cross-Validation, Feature Engineering, GridSearchCV & RandomizedSearchCV
 
-## ❤️ Highlight: Heart Disease EDA
-
-`05_Heart_Disease_EDA.ipynb` analyses 303 patients (302 after removing 1 duplicate row).
-
-**Key findings**
-- No missing values; target is fairly balanced (≈54% `output=1`, 46% `output=0`).
-- Strongest predictors: chest pain type (`cp`), max heart rate (`thalachh`), exercise-induced angina (`exng`), ST depression (`oldpeak`), number of major vessels (`caa`), `thall` and `slp`.
-- Weak predictors: fasting blood sugar (`fbs`), cholesterol (`chol`) and resting blood pressure (`trtbps`).
-- `chol` and `oldpeak` are right-skewed with a few outliers (kept, as they are plausible medical values).
-- Patients with `output=1` have a noticeably higher max heart rate (~158 vs ~139 bpm) and lower `oldpeak` (~0.6 vs ~1.6).
-- The dataset has about twice as many males as females, so sex-based comparisons should be read with care.
+**Deep Learning:** Perceptron & logic gates, ANN, Multi-Layer Perceptron (MLP), CNN, Transfer Learning, Fine-tuning, Transformers (encoder / decoder / encoder-decoder)
 
 ## 🛠️ Tech Stack
 
-- Python 3
-- pandas, NumPy
-- matplotlib, seaborn, plotly
-- scikit-learn
-- Jupyter Notebook
+Python · PyTorch · torchvision · Hugging Face Transformers & Datasets · scikit-learn · pandas · NumPy · matplotlib · seaborn
 
 ## 🚀 Getting Started
 
 ```bash
-# 1. Clone the repo
-git clone https://github.com/<your-username>/AI-engineering.git
+git clone https://github.com/AAMINABIBI/AI-engineering.git
 cd AI-engineering
-
-# 2. (Optional) create a virtual environment
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-
-# 3. Install dependencies
-pip install pandas numpy matplotlib seaborn plotly scikit-learn jupyter
-
-# 4. Launch Jupyter
+pip install pandas numpy matplotlib seaborn scikit-learn torch torchvision transformers datasets jupyter
 jupyter notebook
 ```
 
-Keep the CSV files in the same folder as the notebooks so the relative paths work.
+GPU-based notebooks were run on Google Colab. Datasets are either loaded inside the notebook or expected in the same folder as the notebook.
 
 ## 🗺️ Roadmap
 
-- [ ] Train Logistic Regression and Decision Tree models on the Heart dataset
-- [ ] Add evaluation metrics (confusion matrix, precision/recall, ROC-AUC) and cross-validation
-- [ ] Try Random Forest / KNN and compare models
-- [ ] Add a `requirements.txt`
+- [ ] Add evaluation metrics (confusion matrix, precision/recall) to DL notebooks
+- [ ] Use data augmentation to reduce overfitting in transfer learning
+- [ ] Fine-tune a pretrained model on a custom dataset
+- [ ] Add `requirements.txt`
 
 ## 👩‍💻 Author
 
-**Aamina Bibi**: Frontend Developer (MERN) & Computer Science student
+**Aamina Bibi** · Frontend Developer (MERN) & Computer Science graduate
 Portfolio: [aaminabibi.github.io/Portfolio](https://aaminabibi.github.io/Portfolio)
 
-## ⚠️ Disclaimer
-
-These notebooks are for learning purposes only. The heart disease analysis is **not** medical advice.
+> These notebooks are for learning purposes.
